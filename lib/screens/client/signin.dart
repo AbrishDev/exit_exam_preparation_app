@@ -12,83 +12,66 @@ class SignInScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            SizedBox(height: 20),
+            Image.asset(
+              'assets/images/image.png', // Path to your image
+              width: 200, // Adjust width as needed
+              height: 200, // Adjust height as needed
+            ),
             Text(
-              'Login to Selamta',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              'Welcome Back!',
+              style: TextStyle(fontSize: 24, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
             Text(
-              'Welcome back! Sign in using your social media account',
+              'Sign in to continue',
               style: TextStyle(
                 fontSize: 16,
               ),
               textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/facebook.png',
-                    width: 50,
-                    height: 50,
-                  ), // Change this path to your Facebook icon asset
-                  onPressed: () {
-                    // Handle Facebook sign-in
-                  },
-                ),
-                IconButton(
-                  icon: Image.asset(
-                    'assets/images/google.png',
-                    width: 50,
-                    height: 50,
-                  ), // Change this path to your Google icon asset
-                  onPressed: () {
-                    // Handle Google sign-in
-                  },
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Text(
-              'or',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 16,
-              ),
             ),
             SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Username',
+                labelText: 'ID Number',
+                prefixIcon: Icon(Icons.person),
               ),
             ),
             SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
+                prefixIcon: Icon(Icons.lock),
               ),
               obscureText: true,
             ),
             SizedBox(height: 20),
+            Text(
+              'Forgot Password?',
+              style: TextStyle(
+                fontSize: 16,
+              ),
+              textAlign: TextAlign.right,
+            ),
+            SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                 Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 // Set the background color to green
               ),
               child: Text(
-                'Login',
+                'Sign In',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -98,13 +81,7 @@ class SignInScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextButton(
-                  onPressed: () {
-                    // Handle "Forgot Password" button press
-                  },
-                  child: Text('Forgot Password?'),
-                ),
-                Text(' | '),
+                Text("Don't have an account?"),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -112,7 +89,7 @@ class SignInScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => SignUpScreen()),
                     );
                   },
-                  child: Text('Create Account'),
+                  child: Text('Create new Account'),
                 ),
               ],
             ),

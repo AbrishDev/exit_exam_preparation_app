@@ -1,5 +1,9 @@
+import 'package:exit_exam_preparation_app/screens/client/signin.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
+
+const List<String> listOne = <String>['SE', 'CS', 'IS', 'IT'];
+const List<String> listTwo = <String>['Male', 'Female', 'NotDecided'];
 
 class SignUpScreen extends StatelessWidget {
   @override
@@ -12,44 +16,79 @@ class SignUpScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              'Create Account',
+              style: TextStyle(fontSize: 22, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 12),
             Text(
-              'Create your account to get started!',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
+              'Create a new account',
+              style: TextStyle(fontSize: 14),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 12),
             TextField(
-              decoration: InputDecoration(labelText: 'Full Name'),
+              decoration: InputDecoration(
+                labelText: 'Full Name',
+                prefixIcon: Icon(Icons.person),
+              ),
+            ),
+            SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                labelText: 'Gender',
+                prefixIcon: Icon(Icons.male),
+              ),
+              items: listTwo.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String) {
+                // Handle dropdown value change here
+              },
             ),
             SizedBox(height: 12),
             TextField(
-              decoration: InputDecoration(labelText: 'Department'),
+              decoration: InputDecoration(
+                labelText: 'ID Number',
+                prefixIcon: Icon(Icons.person),
+              ),
+              obscureText: true,
+            ),
+            SizedBox(height: 12),
+            DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                labelText: 'Department',
+                prefixIcon: Icon(Icons.person),
+              ),
+              items: listOne.map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
+              onChanged: (String) {
+                // Handle dropdown value change here
+              },
             ),
             SizedBox(height: 12),
             TextField(
-              decoration: InputDecoration(labelText: 'Gender'),
-            ),
-            SizedBox(height: 12),
-            TextField(
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.lock),
+              ),
               obscureText: true,
             ),
             SizedBox(height: 12),
             TextField(
-              decoration: InputDecoration(labelText: 'Confirm Password'),
+              decoration: InputDecoration(
+                labelText: 'Confirm Password',
+                prefixIcon: Icon(Icons.lock),
+              ),
               obscureText: true,
             ),
-            SizedBox(height: 12),
+            SizedBox(height: 60),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -65,9 +104,26 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                // Set the background color to green
+                backgroundColor: Colors.black,
+                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
               ),
+            ),
+            Text(
+              'Already have an account?',
+              style: TextStyle(fontSize: 14, color: Colors.black),
+              textAlign: TextAlign.center,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignInScreen()),
+                );
+              },
+              child: Text('login'),
             ),
           ],
         ),

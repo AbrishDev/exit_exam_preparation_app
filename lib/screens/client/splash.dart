@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signin.dart';
+import 'onboarding.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,13 +9,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Splash Screen Example',
+      debugShowCheckedModeBanner: false,
+      title: 'Selamta App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: SplashScreen(),
       routes: {
-        '/home': (context) => SignInScreen(), // Route for the home page
+        '/home': (context) => AuthScreen(), // Route for the home page
       },
     );
   }
@@ -52,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen>
       if (status == AnimationStatus.completed) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => SignInScreen(),
+            builder: (_) => AuthScreen(),
           ),
         );
       }
@@ -66,30 +67,27 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Image.asset(
               'assets/images/image.png', // Path to your image
               width: 200, // Adjust width as needed
               height: 200, // Adjust height as needed
             ),
-            SizedBox(height: 30),
-            Text(
-              'GET WELL PREPARED',
-              style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-            ),
             SizedBox(height: 20),
             Text(
-              'Take Quizes, analyze your performance and get well prepared for your exams.',
+              'Welcome to Selamta App',
               style: TextStyle(
-                fontSize: 18.0,
-              ),
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 220),
+            SizedBox(height: 320),
             Text(
-              'Developed by: Abrham D.',
+              'Developed by: AHF Group',
               style: TextStyle(
                 fontSize: 16,
+                fontStyle: FontStyle.italic,
               ),
             ),
           ],

@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'selamta App',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
       home: HomeScreen(),
@@ -24,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool isDarkMode = false;
   int _selectedIndex = 0;
+
   void toggleDarkMode() {
     setState(() {
       isDarkMode = !isDarkMode;
@@ -40,13 +41,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(
-            icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
-            onPressed: toggleDarkMode,
-          ),
-        ],
+        title: Text(
+          'Home',
+          style: TextStyle(),
+          textAlign: TextAlign.center,
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -56,12 +55,22 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 color: isDarkMode ? Colors.black : Colors.blue,
               ),
-              child: Text(
-                'Drawer Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Drawer Header',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+                    color: Colors.white,
+                    onPressed: toggleDarkMode,
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -144,13 +153,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         // Handle button 8 press
                       },
                       child: Text('Exam 2014'),
-                    ),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 9 press
-                      },
-                      child: Text('Exam 2013'),
                     ),
                   ],
                 ),
