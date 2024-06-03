@@ -48,44 +48,80 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+        child: Column(
           children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: isDarkMode ? Colors.black : Colors.blue,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Drawer Header',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
+            Container(
+              color: isDarkMode ? Colors.black : Colors.blue,
+              child: DrawerHeader(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CircleAvatar(
+                      child: Icon(Icons.person),
                     ),
-                  ),
-                  IconButton(
-                    icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
-                    color: Colors.white,
-                    onPressed: toggleDarkMode,
-                  ),
-                ],
+                    SizedBox(height: 8),
+                    Text(
+                      'John Doe',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      'Department of Computer Science',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
+            Divider(color: Colors.grey),
             ListTile(
-              title: Text('Item 1'),
+              title: Text('Home'),
+              leading: Icon(Icons.home),
               onTap: () {
-                // Handle item 1 tap
+                // Handle Home tap
               },
             ),
             ListTile(
-              title: Text('Item 2'),
+              title: Text('Analytics'),
+              leading: Icon(Icons.analytics),
               onTap: () {
-                // Handle item 2 tap
+                // Handle Analytics tap
               },
             ),
-            // Add more list tiles for additional items
+            ListTile(
+              title: Text('Reminder'),
+              leading: Icon(Icons.notifications),
+              onTap: () {
+                // Handle Reminder tap
+              },
+            ),
+            ListTile(
+              title: Text('Messages'),
+              leading: Icon(Icons.message),
+              onTap: () {
+                // Handle Messages tap
+              },
+            ),
+            Divider(color: Colors.grey),
+            ListTile(
+              title: Text('Settings'),
+              leading: Icon(Icons.settings),
+              onTap: () {
+                // Handle Settings tap
+              },
+            ),
+            ListTile(
+              title: Text('Logout'),
+              leading: Icon(Icons.logout),
+              onTap: () {
+                // Handle Logout tap
+              },
+            ),
           ],
         ),
       ),
@@ -162,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black, // Set the background color
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -170,6 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
+            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
