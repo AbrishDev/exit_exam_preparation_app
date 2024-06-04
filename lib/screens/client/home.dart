@@ -46,39 +46,41 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(),
           textAlign: TextAlign.center,
         ),
+        backgroundColor:
+            Colors.blue, // Set the background color of AppBar to blue
       ),
       drawer: Drawer(
-        child: Column(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: <Widget>[
-            Container(
-              color: isDarkMode ? Colors.black : Colors.blue,
-              child: DrawerHeader(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CircleAvatar(
-                      child: Icon(Icons.person),
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    child: Icon(Icons.person),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'John Doe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'John Doe',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
+                  ),
+                  Text(
+                    'Department of Computer Science',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
                     ),
-                    Text(
-                      'Department of Computer Science',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            Divider(color: Colors.grey),
             ListTile(
               title: Text('Home'),
               leading: Icon(Icons.home),
@@ -107,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // Handle Messages tap
               },
             ),
-            Divider(color: Colors.grey),
+            Divider(),
             ListTile(
               title: Text('Settings'),
               leading: Icon(Icons.settings),
@@ -129,96 +131,146 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Previous Exit Exams',
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 1 press
-                      },
-                      child: Text('Exam 2015'),
-                    ),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 2 press
-                      },
-                      child: Text('Exam 2015'),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Model Exams',
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 6 press
-                      },
-                      child: Text('Exam 2016'),
-                    ),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 7 press
-                      },
-                      child: Text('Exam 2015'),
-                    ),
-                    SizedBox(width: 10),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button 8 press
-                      },
-                      child: Text('Exam 2014'),
-                    ),
-                  ],
-                ),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 60),
+                  Text(
+                    'Yearly Exams >',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 1 press
+                          },
+                          child: Text('Exam 2015'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 2 press
+                          },
+                          child: Text('Exam 2015'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 3 press
+                          },
+                          child: Text('Exam 2016'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 4 press
+                          },
+                          child: Text('Exam 2014'),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 60),
+                  Text(
+                    'Custom Exams >',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 5 press
+                          },
+                          child: Text('Exam 2017'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 6 press
+                          },
+                          child: Text('Exam 2018'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 7 press
+                          },
+                          child: Text('Exam 2019'),
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      SizedBox(
+                        width: 100,
+                        height: 100,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            // Handle button 8 press
+                          },
+                          child: Text('Exam 2020'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black, // Set the background color
+        backgroundColor: Colors.blue,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home), // Set the icon
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.search), // Set the icon
             label: 'Search',
-            backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Courses',
+            icon: Icon(Icons.analytics), // Set the icon to analytics
+            label: 'Analytics',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person), // Set the icon
             label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green, // Change the color of selected icons
+        unselectedItemColor: Colors.red, // Change the color of unselected icons
         onTap: _onItemTapped,
       ),
     );
