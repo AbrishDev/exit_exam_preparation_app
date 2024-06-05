@@ -1,23 +1,29 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'selamta App',
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -41,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Home',
           style: TextStyle(),
           textAlign: TextAlign.center,
@@ -53,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
@@ -82,44 +88,44 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              title: Text('Home'),
-              leading: Icon(Icons.home),
+              title: const Text('Home'),
+              leading: const Icon(Icons.home),
               onTap: () {
                 // Handle Home tap
               },
             ),
             ListTile(
-              title: Text('Analytics'),
-              leading: Icon(Icons.analytics),
+              title: const Text('Analytics'),
+              leading: const Icon(Icons.analytics),
               onTap: () {
                 // Handle Analytics tap
               },
             ),
             ListTile(
-              title: Text('Reminder'),
-              leading: Icon(Icons.notifications),
+              title: const Text('Reminder'),
+              leading: const Icon(Icons.notifications),
               onTap: () {
                 // Handle Reminder tap
               },
             ),
             ListTile(
-              title: Text('Messages'),
-              leading: Icon(Icons.message),
+              title: const Text('Messages'),
+              leading: const Icon(Icons.message),
               onTap: () {
                 // Handle Messages tap
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              title: Text('Settings'),
-              leading: Icon(Icons.settings),
+              title: const Text('Settings'),
+              leading: const Icon(Icons.settings),
               onTap: () {
                 // Handle Settings tap
               },
             ),
             ListTile(
-              title: Text('Logout'),
-              leading: Icon(Icons.logout),
+              title: const Text('Logout'),
+              leading: const Icon(Icons.logout),
               onTap: () {
                 // Handle Logout tap
               },
@@ -136,12 +142,12 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 60),
-                  Text(
+                  const SizedBox(height: 60),
+                  const Text(
                     'Yearly Exams >',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     children: [
                       SizedBox(
@@ -151,10 +157,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 1 press
                           },
-                          child: Text('Exam 2015'),
+                          child: const Text('Exam 2015'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -162,10 +168,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 2 press
                           },
-                          child: Text('Exam 2015'),
+                          child: const Text('Exam 2015'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -173,10 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 3 press
                           },
-                          child: Text('Exam 2016'),
+                          child: const Text('Exam 2016'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -184,17 +190,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 4 press
                           },
-                          child: Text('Exam 2014'),
+                          child: const Text('Exam 2014'),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 60),
-                  Text(
+                  const SizedBox(height: 60),
+                  const Text(
                     'Custom Exams >',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     children: [
                       SizedBox(
@@ -204,10 +210,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 5 press
                           },
-                          child: Text('Exam 2017'),
+                          child: const Text('Exam 2017'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -215,10 +221,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 6 press
                           },
-                          child: Text('Exam 2018'),
+                          child: const Text('Exam 2018'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -226,10 +232,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 7 press
                           },
-                          child: Text('Exam 2019'),
+                          child: const Text('Exam 2019'),
                         ),
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       SizedBox(
                         width: 100,
                         height: 100,
@@ -237,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           onPressed: () {
                             // Handle button 8 press
                           },
-                          child: Text('Exam 2020'),
+                          child: const Text('Exam 2020'),
                         ),
                       ),
                     ],

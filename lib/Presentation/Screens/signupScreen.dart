@@ -1,40 +1,43 @@
-import 'package:exit_exam_preparation_app/screens/client/signin.dart';
+// ignore: file_names
+import 'package:exit_exam_preparation_app/Presentation/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'homeScreen.dart';
 
 const List<String> listOne = <String>['SE', 'CS', 'IS', 'IT'];
 const List<String> listTwo = <String>['Male', 'Female', 'NotDecided'];
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Create Account',
               style: TextStyle(fontSize: 22, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            Text(
+            const Text(
               'Create a new account',
               style: TextStyle(fontSize: 14),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 12),
-            TextField(
+            const SizedBox(height: 12),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Full Name',
                 prefixIcon: Icon(Icons.person),
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             DropdownButtonFormField<String>(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Gender',
                 prefixIcon: Icon(Icons.male),
               ),
@@ -44,21 +47,22 @@ class SignUpScreen extends StatelessWidget {
                   child: Text(value),
                 );
               }).toList(),
+              // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
               onChanged: (String) {
                 // Handle dropdown value change here
               },
             ),
-            SizedBox(height: 12),
-            TextField(
+            const SizedBox(height: 12),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'ID Number',
                 prefixIcon: Icon(Icons.person),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             DropdownButtonFormField<String>(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Department',
                 prefixIcon: Icon(Icons.person),
               ),
@@ -68,35 +72,37 @@ class SignUpScreen extends StatelessWidget {
                   child: Text(value),
                 );
               }).toList(),
+              // ignore: non_constant_identifier_names, avoid_types_as_parameter_names
               onChanged: (String) {
                 // Handle dropdown value change here
               },
             ),
-            SizedBox(height: 12),
-            TextField(
+            const SizedBox(height: 12),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
                 prefixIcon: Icon(Icons.lock),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 12),
-            TextField(
+            const SizedBox(height: 12),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
                 prefixIcon: Icon(Icons.lock),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               },
-              child: Text(
+              // ignore: sort_child_properties_last
+              child: const Text(
                 'Sign Up',
                 style: TextStyle(
                   fontSize: 16,
@@ -105,13 +111,13 @@ class SignUpScreen extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
-                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
               ),
             ),
-            Text(
+            const Text(
               'Already have an account?',
               style: TextStyle(fontSize: 14, color: Colors.black),
               textAlign: TextAlign.center,
@@ -120,10 +126,10 @@ class SignUpScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SignInScreen()),
+                  MaterialPageRoute(builder: (context) => const SignInScreen()),
                 );
               },
-              child: Text('login'),
+              child: const Text('login'),
             ),
           ],
         ),

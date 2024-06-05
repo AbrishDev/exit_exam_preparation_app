@@ -1,8 +1,11 @@
-import 'package:exit_exam_preparation_app/screens/client/home.dart';
+// ignore: file_names
+import 'package:exit_exam_preparation_app/Presentation/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'signup.dart';
+import 'signupScreen.dart';
 
 class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,49 +15,49 @@ class SignInScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Image.asset(
               'assets/images/image.png', // Path to your image
               width: 200, // Adjust width as needed
               height: 200, // Adjust height as needed
             ),
-            Text(
+            const Text(
               'Welcome Back!',
               style: TextStyle(fontSize: 24, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Sign in to continue',
               style: TextStyle(
                 fontSize: 16,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
-            TextField(
+            const SizedBox(height: 10),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'ID Number',
                 prefixIcon: Icon(Icons.person),
               ),
             ),
-            SizedBox(height: 10),
-            TextField(
+            const SizedBox(height: 10),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Password',
                 prefixIcon: Icon(Icons.lock),
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Forgot Password?',
               style: TextStyle(
                 fontSize: 16,
               ),
               textAlign: TextAlign.right,
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -64,32 +67,32 @@ class SignInScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
-                padding: EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
+                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 // Set the background color to green
               ),
-              child: Text(
+              child: const Text(
                 'Sign In',
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account?"),
+                const Text("Don't have an account?"),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
                     );
                   },
-                  child: Text('Create new Account'),
+                  child: const Text('Create new Account'),
                 ),
               ],
             ),
@@ -101,7 +104,7 @@ class SignInScreen extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: SignInScreen(),
   ));
 }

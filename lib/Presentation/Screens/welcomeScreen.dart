@@ -1,8 +1,11 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'signup.dart';
-import 'signin.dart';
+import 'signupScreen.dart';
+import 'loginScreen.dart';
 
 class AuthScreen extends StatelessWidget {
+  const AuthScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +16,7 @@ class AuthScreen extends StatelessWidget {
           children: [
             // Logo
             Container(
-              margin: EdgeInsets.only(bottom: 20.0),
+              margin: const EdgeInsets.only(bottom: 20.0),
               child: Image.asset(
                 'assets/images/image.png', // Replace 'assets/logo.png' with your logo image path
                 width: 200.0,
@@ -21,22 +24,22 @@ class AuthScreen extends StatelessWidget {
                 // Adjust width and height according to your logo size
               ),
             ),
-            SizedBox(height: 50.0),
-            Text(
+            const SizedBox(height: 50.0),
+            const Text(
               'GET WELL PREPARED',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Take Quizes, analyze your performance\n Get ready based on you current level and\n nail the exit exam.',
               style: TextStyle(
                 fontSize: 14.0,
               ),
             ),
-            SizedBox(height: 40.0),
+            const SizedBox(height: 40.0),
             // Buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -46,10 +49,11 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()),
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
                     );
                   },
-                  child: Text(
+                  // ignore: sort_child_properties_last
+                  child: const Text(
                     'Sign Up',
                     style: TextStyle(
                       color: Colors.white,
@@ -58,22 +62,23 @@ class AuthScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.black,
                     padding:
-                        EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                        const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
-                SizedBox(width: 20.0),
+                const SizedBox(width: 20.0),
                 // Log in button
                 OutlinedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignInScreen()),
+                      MaterialPageRoute(builder: (context) => const SignInScreen()),
                     );
                   },
-                  child: Text(
+                  // ignore: sort_child_properties_last
+                  child: const Text(
                     'Log In',
                     style: TextStyle(
                       color: Colors.black,
@@ -82,7 +87,7 @@ class AuthScreen extends StatelessWidget {
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
                     padding:
-                        EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                        const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),

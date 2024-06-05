@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'screens/client/splash.dart';
+import './Presentation/screens/splashScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/splash', // Set initial route to splash screen
       routes: {
-        '/splash': (context) => SplashScreen(), // Route for home screen
+        '/splash': (context) => const SplashScreen(), // Route for home screen
       },
     );
   }

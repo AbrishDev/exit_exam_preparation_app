@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'onboarding.dart';
+import 'welcomeScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,16 +16,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       routes: {
-        '/home': (context) => AuthScreen(), // Route for the home page
+        '/home': (context) => const AuthScreen(), // Route for the home page
       },
     );
   }
 }
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -38,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     _animation = Tween<double>(
@@ -53,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen>
       if (status == AnimationStatus.completed) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => AuthScreen(),
+            builder: (_) => const AuthScreen(),
           ),
         );
       }
@@ -67,14 +72,14 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 60),
+            const SizedBox(height: 60),
             Image.asset(
               'assets/images/logo.png', // Path to your image
               width: 200, // Adjust width as needed
               height: 200, // Adjust height as needed
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Welcome to Selamta App',
               style: TextStyle(
                   fontSize: 24.0,
@@ -82,8 +87,8 @@ class _SplashScreenState extends State<SplashScreen>
                   color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 320),
-            Text(
+            const SizedBox(height: 320),
+            const Text(
               'Developed by: AHF Group',
               style: TextStyle(
                 fontSize: 16,
