@@ -49,7 +49,8 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpScreen()),
                     );
                   },
                   // ignore: sort_child_properties_last
@@ -61,8 +62,8 @@ class AuthScreen extends StatelessWidget {
                   ),
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.black,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 15.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -74,7 +75,8 @@ class AuthScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SignInScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const SignInScreen()),
                     );
                   },
                   // ignore: sort_child_properties_last
@@ -86,8 +88,8 @@ class AuthScreen extends StatelessWidget {
                   ),
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Colors.white,
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 25.0, vertical: 15.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),

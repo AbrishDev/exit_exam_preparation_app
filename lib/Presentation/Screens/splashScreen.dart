@@ -72,27 +72,30 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 60),
-            Image.asset(
-              'assets/images/logo.png', // Path to your image
-              width: 200, // Adjust width as needed
-              height: 200, // Adjust height as needed
+            Expanded(
+              flex: 2,
+              child: Center(
+                child: Image.asset(
+                  'assets/images/logo.png', // Path to your image
+                  width: 200, // Adjust width as needed
+                  height: 200, // Adjust height as needed
+                ),
+              ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Welcome to Selamta App',
-              style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 320),
-            const Text(
-              'Developed by: AHF Group',
-              style: TextStyle(
-                fontSize: 16,
-                fontStyle: FontStyle.italic,
+            const Expanded(
+              flex: 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Most Trusted Learning Platform',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

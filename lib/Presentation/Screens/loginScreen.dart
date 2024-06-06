@@ -1,5 +1,7 @@
 // ignore: file_names
-import 'package:exit_exam_preparation_app/Presentation/screens/home.dart';
+// ignore_for_file: sort_child_properties_last
+
+import 'package:exit_exam_preparation_app/Presentation/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
 import 'signupScreen.dart';
 
@@ -11,11 +13,10 @@ class SignInScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 70.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 20),
             Image.asset(
               'assets/images/image.png', // Path to your image
               width: 200, // Adjust width as needed
@@ -26,7 +27,6 @@ class SignInScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
             const Text(
               'Sign in to continue',
               style: TextStyle(
@@ -34,49 +34,69 @@ class SignInScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 10),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'ID Number',
-                prefixIcon: Icon(Icons.person),
+            const SizedBox(height: 40),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const TextField(
+                decoration: InputDecoration(
+                  labelText: 'ID Number',
+                  prefixIcon: Icon(Icons.person),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                ),
               ),
             ),
             const SizedBox(height: 10),
-            const TextField(
-              decoration: InputDecoration(
-                labelText: 'Password',
-                prefixIcon: Icon(Icons.lock),
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
               ),
-              obscureText: true,
+              child: const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  prefixIcon: Icon(Icons.lock),
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                ),
+                obscureText: true,
+              ),
             ),
             const SizedBox(height: 20),
             const Text(
               'Forgot Password?',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
+                color: Colors.blue,
               ),
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.end,
             ),
             const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 15.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            SizedBox(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
+                child: const Text(
+                  'Sign in',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ),
-                // Set the background color to green
-              ),
-              child: const Text(
-                'Sign In',
-                style: TextStyle(
-                  color: Colors.white,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 15.0, horizontal: 60.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
                 ),
               ),
             ),
@@ -84,15 +104,20 @@ class SignInScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Don't have an account?"),
+                const Text(
+                  "Don't have an account?",
+                  style: TextStyle(fontSize: 14, color: Colors.black),
+                ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => const SignUpScreen()),
                     );
                   },
-                  child: const Text('Create new Account'),
+                  child: const Text('Create new Account',
+                      style: TextStyle(color: Colors.blue)),
                 ),
               ],
             ),
