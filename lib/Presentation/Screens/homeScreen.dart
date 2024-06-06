@@ -6,6 +6,7 @@ import '../Widgets/appDrawer.dart';
 import '../Widgets/imageCarousel.dart';
 import '../Widgets/exploreSection.dart';
 import '../Widgets/newCourseSection.dart';
+import '../Screens/courseScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,11 +39,45 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isDarkMode = false;
-  int _selectedIndex = 0;
+  int _currentIndex = 0;
 
-  void _onItemTapped(int index) {
+  void _onNavBarTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _currentIndex = index;
+      if (index == 2) {
+        // If "My Course" button is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MyCourse()), // Navigate to CourseScreen
+        );
+      } else if (index == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  const HomeScreen()), // Navigate to CourseScreen
+        );
+        // Handle other button taps
+      } else if (index == 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MyCourse()), // Navigate to CourseScreen
+        );
+      } else if (index == 3) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MyCourse()), // Navigate to CourseScreen
+        );
+      } else if (index == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MyCourse()), // Navigate to CourseScreen
+        );
+      }
     });
   }
 
@@ -62,11 +97,10 @@ class _HomeScreenState extends State<HomeScreen> {
             NewCoursesSection(),
           ],
         ),
-        
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        currentIndex: _currentIndex,
+        onTap: _onNavBarTapped,
       ),
     );
   }
