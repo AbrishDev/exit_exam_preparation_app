@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../Widgets/appHeader.dart'; // Import the CustomBottomNavBar widget
 import '../Widgets/appBottomNavBar.dart';
+import '../Widgets/appDrawer.dart';
+import '../Widgets/appHeader.dart';
+import '../Widgets/videosNotesRow .dart';
 
 class MyCourse extends StatefulWidget {
   @override
@@ -8,146 +10,52 @@ class MyCourse extends StatefulWidget {
 }
 
 class _MyCourseState extends State<MyCourse> {
-  bool _showVideos = true; // Track whether to show videos or notes
+  bool _showVideos = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppHeader(title: 'BiT Learning Platform'),
+      appBar: const AppHeader(title: 'BiT Learning Platform'),
+      drawer: AppDrawer(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // First section with video and note buttons
-          Row(
-            children: [
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _showVideos = true; // Show videos
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white, // Text color
-                  ),
-                  child: Text('Videos'),
-                ),
-              ),
-              SizedBox(width: 16), // Add spacing between buttons
-              Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      _showVideos = false; // Show notes
-                    });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white, // Text color
-                  ),
-                  child: Text('Notes'),
-                ),
-              ),
-            ],
+          VideosNotesRow(
+            showVideos: _showVideos,
+            onToggle: (bool show) {
+              setState(() {
+                _showVideos = show;
+              });
+            },
           ),
-
-          // Second section with boxes for notes or videos
+          SizedBox(height: 16),
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // First section with video and note buttons
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              _showVideos = true; // Show videos
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.blue,
-                            backgroundColor: Colors.white, // Text color
-                          ),
-                          child: Text('Videos'),
-                        ),
-                      ),
-                      SizedBox(width: 16), // Add spacing between buttons
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              _showVideos = false; // Show notes
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.blue,
-                            backgroundColor: Colors.white, // Text color
-                          ),
-                          child: Text('Notes'),
-                        ),
-                      ),
-                    ],
+            child: ListView.builder(
+              itemCount:
+                  _showVideos ? 10 : 5, // Example number of videos or notes
+              itemBuilder: (context, index) {
+                return Container(
+                  padding: EdgeInsets.all(12),
+                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  SizedBox(
-                      height: 16), // Add spacing between buttons and containers
-                  // Second section with boxes for notes or videos
-                  _buildContentSection(),
-                ],
-              ),
+                  child: Text(
+                    _showVideos ? 'Video ${index + 1}' : 'Note ${index + 1}',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                );
+              },
             ),
           ),
         ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: 1, // Set the current index for the bottom nav bar
+        currentIndex: 2,
         onTap: (index) {
           // Handle bottom nav bar item taps
         },
       ),
-    );
-  }
-
-  Widget _buildContentSection() {
-    List<Widget> rows = [];
-    final int itemCount = _showVideos ? 6 : 4; // Adjust item count as needed
-    for (int i = 0; i < itemCount; i += 2) {
-      rows.add(
-        Row(
-          children: [
-            Expanded(
-              child: _buildItemContainer(
-                  _showVideos ? 'Video ${i + 1}' : 'Note ${i + 1}'),
-            ),
-            SizedBox(width: 16), // Add spacing between containers
-            Expanded(
-              child: i + 1 < itemCount
-                  ? _buildItemContainer(
-                      _showVideos ? 'Video ${i + 2}' : 'Note ${i + 2}')
-                  : SizedBox(),
-            ),
-          ],
-        ),
-      );
-      if (i + 2 < itemCount) {
-        rows.add(SizedBox(height: 16)); // Add vertical spacing between rows
-      }
-    }
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: rows,
-    );
-  }
-
-  Widget _buildItemContainer(String title) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 8),
-      padding: EdgeInsets.all(16),
-      color: _showVideos ? Colors.blue[100] : Colors.yellow[100],
-      child: Text(title),
     );
   }
 }
