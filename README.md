@@ -1,6 +1,6 @@
-# exit_exam_preparation_app
+# Exit_Exam_Preparation_App
 
-A new Flutter project.
+A New Project using Flutter and Django for preparing students for Exit Exam.
 
 ## Getting Started
 
