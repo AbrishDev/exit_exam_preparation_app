@@ -1,5 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'homeScreen.dart';
 import 'loginScreen.dart';
 
@@ -8,6 +10,38 @@ const List<String> listTwo = <String>['Male', 'Female'];
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
+
+   Future<void> signUp(BuildContext context, Map<String, dynamic> userData) async {
+    final String apiUrl = 'http://127.0.0.1:8000/api/signup/';
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(userData),
+      );
+
+      if (response.statusCode == 201) {
+        // User signed up successfully
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
+      } else {
+        // Signup failed, show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to sign up')),
+        );
+      }
+    } catch (e) {
+      // Error occurred during signup
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error: $e')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
