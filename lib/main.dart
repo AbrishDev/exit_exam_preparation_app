@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './Presentation/screens/splashScreen.dart';
 import 'Presentation/Screens/homeScreen.dart';
+import 'Presentation/Screens/courseScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/splash', // Set initial route to splash screen
       routes: {
-        '/splash': (context) => const SplashScreen(),
-        '/home': (context) => const HomeScreen(), // Route for home screen
+        '/splash': (context) => SplashScreen(),
+        '/home': (context) => HomeScreen(),
+        '/mytest': (context) => HomeScreen(),
+        '/mycourse': (context) => MyCourse(),
+        '/analytics': (context) => HomeScreen(),
+        '/profile': (context) => HomeScreen(), // Route for home screen
       },
     );
   }

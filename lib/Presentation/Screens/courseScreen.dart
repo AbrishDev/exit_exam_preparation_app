@@ -3,6 +3,7 @@ import '../Widgets/appBottomNavBar.dart';
 import '../Widgets/appDrawer.dart';
 import '../Widgets/appHeader.dart';
 import '../Widgets/videosNotesRow .dart';
+import '../../utils/navigation_helper.dart';
 
 class MyCourse extends StatefulWidget {
   @override
@@ -52,9 +53,7 @@ class _MyCourseState extends State<MyCourse> {
       ),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: 2,
-        onTap: (index) {
-          // Handle bottom nav bar item taps
-        },
+        onTap: (index) => navigateTo(context, index),
       ),
     );
   }
