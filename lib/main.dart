@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/splash', // Set initial route to splash screen
       routes: {
-        '/splash': (context) => SplashScreen(),
-        '/home': (context) => HomeScreen(),
-        '/mytest': (context) => HomeScreen(),
+        '/splash': (context) => const SplashScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/mytest': (context) => const HomeScreen(),
         '/mycourse': (context) => MyCourse(),
-        '/analytics': (context) => HomeScreen(),
-        '/profile': (context) => HomeScreen(), // Route for home screen
+        '/analytics': (context) => const HomeScreen(),
+        '/profile': (context) => const HomeScreen(), // Route for home screen
       },
     );
   }
