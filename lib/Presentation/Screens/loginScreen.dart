@@ -11,14 +11,16 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 70.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/image.png', // Path to your image
+              'assets/images/image2.png', // Path to your image
               width: 200, // Adjust width as needed
               height: 200, // Adjust height as needed
             ),

@@ -18,7 +18,7 @@ class AuthScreen extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(bottom: 20.0),
               child: Image.asset(
-                'assets/images/image.png', // Replace 'assets/logo.png' with your logo image path
+                'assets/images/image2.png', // Replace 'assets/logo.png' with your logo image path
                 width: 200.0,
                 height: 200.0,
                 // Adjust width and height according to your logo size

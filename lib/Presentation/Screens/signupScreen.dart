@@ -1,4 +1,6 @@
 // ignore: file_names
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -12,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
    Future<void> signUp(BuildContext context, Map<String, dynamic> userData) async {
-    final String apiUrl = 'http://127.0.0.1:8000/api/signup/';
+    const String apiUrl = 'http://127.0.0.1:8000/api/signup/';
 
     try {
       final response = await http.post(
@@ -32,7 +34,7 @@ class SignUpScreen extends StatelessWidget {
       } else {
         // Signup failed, show error message
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to sign up')),
+          const SnackBar(content: Text('Failed to sign up')),
         );
       }
     } catch (e) {
@@ -46,7 +48,9 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
