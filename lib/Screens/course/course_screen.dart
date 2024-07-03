@@ -1,9 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 import '../../Widgets/bottom_navbar.dart';
 import '../../Widgets/app_drawer.dart';
 import '../../Widgets/app_bar.dart';
-import '../../Widgets/videos_notes_row .dart';
 import '../../utils/navigation_helper.dart';
 
 class MyCourse extends StatefulWidget {
@@ -23,19 +21,48 @@ class _MyCourseState extends State<MyCourse> {
       drawer: AppDrawer(),
       body: Column(
         children: [
-          VideosNotesRow(
-            showVideos: _showVideos,
-            onToggle: (bool show) {
-              setState(() {
-                _showVideos = show;
-              });
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.video_library, size: 20),
+                  label: const Text('Videos', style: TextStyle(fontSize: 20)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16), backgroundColor: _showVideos ? Colors.blue : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _showVideos = true;
+                    });
+                  },
+                ),
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.note, size: 20),
+                  label: const Text('Notes', style: TextStyle(fontSize: 20)),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16), backgroundColor: !_showVideos ? Colors.blue : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _showVideos = false;
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           Expanded(
             child: ListView.builder(
-              itemCount:
-                  _showVideos ? 10 : 5, // Example number of videos or notes
+              itemCount: _showVideos ? 10 : 5, // Example number of videos or notes
               itemBuilder: (context, index) {
                 return Container(
                   padding: const EdgeInsets.all(12),
