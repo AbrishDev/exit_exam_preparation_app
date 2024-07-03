@@ -1,12 +1,70 @@
-// ignore: file_names
-// ignore_for_file: sort_child_properties_last
-
-import 'package:exit_exam_preparation_app/Presentation/screens/homeScreen.dart';
 import 'package:flutter/material.dart';
-import 'signupScreen.dart';
+import '../../Services/auth_service.dart'; // Adjust based on your project structure
+import 'signup_screen.dart';
+import '../home/home_screen.dart'; // Import your home screen
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+   SignInScreen({Key? key});
+
+  final AuthService authService = AuthService();
+  final TextEditingController idNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void signIn(BuildContext context) async {
+    String idNumber = idNumberController.text.trim();
+    String password = passwordController.text.trim();
+
+    if (idNumber.isEmpty || password.isEmpty) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Input Error'),
+          content: const Text('Please enter ID Number and Password'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
+    final result = await authService.signIn(idNumber, password);
+
+    if (result['success']) {
+      // Successful login
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Login successful'),
+          duration: Duration(seconds: 2),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      // Navigate to home screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    } else {
+      // Login failed, show error message
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Login Failed'),
+          content: Text(result['message']),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +78,9 @@ class SignInScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images/image2.png', // Path to your image
-              width: 200, // Adjust width as needed
-              height: 200, // Adjust height as needed
+              'assets/images/image2.png', // Adjust the path to your image
+              width: 200,
+              height: 200,
             ),
             const Text(
               'Welcome Back!',
@@ -42,8 +100,10 @@ class SignInScreen extends StatelessWidget {
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const TextField(
-                decoration: InputDecoration(
+              
+              child: TextField(
+                controller: idNumberController,
+                decoration: const InputDecoration(
                   labelText: 'ID Number',
                   prefixIcon: Icon(Icons.person),
                   border: InputBorder.none,
@@ -57,8 +117,9 @@ class SignInScreen extends StatelessWidget {
                 border: Border.all(color: Colors.grey),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const TextField(
-                decoration: InputDecoration(
+              child: TextField(
+                controller: passwordController,
+                decoration: const InputDecoration(
                   labelText: 'Password',
                   prefixIcon: Icon(Icons.lock),
                   border: InputBorder.none,
@@ -80,24 +141,21 @@ class SignInScreen extends StatelessWidget {
             SizedBox(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  );
+                  signIn(context);
                 },
-                child: const Text(
-                  'Sign in',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                   padding: const EdgeInsets.symmetric(
                       vertical: 15.0, horizontal: 60.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+                child: const Text(
+                  'Sign in',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -114,8 +172,7 @@ class SignInScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignUpScreen()),
+                      MaterialPageRoute(builder: (context) => const SignUpScreen()),
                     );
                   },
                   child: const Text('Create new Account',
@@ -130,8 +187,3 @@ class SignInScreen extends StatelessWidget {
   }
 }
 
-void main() {
-  runApp(const MaterialApp(
-    home: SignInScreen(),
-  ));
-}

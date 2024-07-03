@@ -28,7 +28,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
               margin: const EdgeInsets.symmetric(vertical: 5.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(image, fit: BoxFit.cover, width: 1000.0),
+                child: Image.network(image, fit: BoxFit.cover, width: 800.0),
               ),
             );
           }).toList(),
@@ -48,9 +48,10 @@ class _ImageCarouselState extends State<ImageCarousel> {
           children: _images.map((url) {
             int index = _images.indexOf(url);
             return Container(
-              width: 8.0,
-              height: 8.0,
-              margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+              width: 6.0,
+              height: 6.0,
+              margin:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _currentIndex == index ? Colors.blueAccent : Colors.grey,

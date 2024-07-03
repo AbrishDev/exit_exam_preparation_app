@@ -1,7 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'signupScreen.dart';
-import 'loginScreen.dart';
+import 'signup_screen.dart';
+import 'login_screen.dart';
 
 class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
@@ -76,7 +76,7 @@ class AuthScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SignInScreen()),
+                          builder: (context) => SignInScreen()),
                     );
                   },
                   // ignore: sort_child_properties_last

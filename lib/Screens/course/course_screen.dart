@@ -1,9 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
-import '../Widgets/appBottomNavBar.dart';
-import '../Widgets/appDrawer.dart';
-import '../Widgets/appHeader.dart';
-import '../Widgets/videosNotesRow .dart';
+import '../../Widgets/bottom_navbar.dart';
+import '../../Widgets/app_drawer.dart';
+import '../../Widgets/app_bar.dart';
+import '../../Widgets/videos_notes_row .dart';
 import '../../utils/navigation_helper.dart';
 
 class MyCourse extends StatefulWidget {
@@ -19,7 +19,7 @@ class _MyCourseState extends State<MyCourse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppHeader(title: 'BiT Learning Platform'),
+      appBar: const AppHeader(title: 'BiTech'),
       drawer: AppDrawer(),
       body: Column(
         children: [

@@ -1,11 +1,10 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
-import '../Widgets/AppHeader.dart';
-import '../Widgets/appBottomNavBar.dart';
-import '../Widgets/appDrawer.dart';
-import '../Widgets/imageCarousel.dart';
-import '../Widgets/exploreSection.dart';
-import '../Widgets/newCourseSection.dart';
+import '../../Widgets/App_bar.dart';
+import '../../Widgets/bottom_navbar.dart';
+import '../../Widgets/app_drawer.dart';
+import '../../Widgets/image_carousel.dart';
+import '../../Widgets/explore_section.dart';
+import '../../Widgets/new_course_section.dart';
 import '../../utils/navigation_helper.dart';
 
 void main() {
@@ -43,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // ignore: prefer_const_constructors
     return Scaffold(
       appBar: const AppHeader(
-        title: 'BiT Learning Platform',
+        title: 'BiTech',
       ),
       drawer: AppDrawer(),
       body: const SingleChildScrollView(

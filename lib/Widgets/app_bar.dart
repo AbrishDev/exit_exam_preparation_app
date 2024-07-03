@@ -1,3 +1,4 @@
+import 'package:exit_exam_preparation_app/utils/color_assets.dart';
 import 'package:flutter/material.dart';
 
 class AppHeader extends StatefulWidget implements PreferredSizeWidget {
@@ -94,7 +95,7 @@ class _AppHeaderState extends State<AppHeader> {
           },
         ),
       ],
-      backgroundColor: Colors.blue,
+      backgroundColor: ColorAssets.bduColor,
     );
   }
 }

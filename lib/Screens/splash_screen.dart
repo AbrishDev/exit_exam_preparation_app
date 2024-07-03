@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'welcomeScreen.dart';
+import './auth/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +28,6 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -48,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animation = Tween<double>(
       begin: 0,
-      end: 1,
+      end: 5,
     ).animate(_controller);
 
     _controller.forward();
@@ -68,37 +67,15 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 2,
-              child: Center(
-                child: Image.asset(
-                  'assets/images/logo.png', // Path to your image
-                  width: 200, // Adjust width as needed
-                  height: 200, // Adjust height as needed
-                ),
-              ),
+      body: FadeTransition(
+        opacity: _animation,
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/BiT.png'), // Path to your image
+              fit: BoxFit.cover, // Make the image cover the entire screen
             ),
-            const SizedBox(height: 20),
-            const Expanded(
-              flex: 1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Most Trusted Learning Platform',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
